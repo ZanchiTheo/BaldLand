@@ -1,0 +1,59 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar class="tittle">
+      <img src="{{server}}icons/{{world.logo}}" class="logoWorld"/>
+      {{world.name}}
+      <img src="{{server}}icons/{{world.logo}}" class="logoWorld"/>
+    </mat-toolbar>
+    <mat-nav-list>
+      <input class="inputUsername" type="text" [(ngModel)]="username" (change)="onUsernameChanged()"/> 
+      <a mat-list-item (click)="changeQuanti()">x{{quanti}}</a>
+      <a mat-list-item data-toggle="modal" (click)="managersModal.show()">
+          <span class="badge" [hidden]="managerAffordable">New</span>Managers
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav-content">
+    <mat-toolbar class="sidenav-toolbar">
+      <div class="money">
+        <span>Cheuveux gagnés: <span [innerHTML]="world.money | bigvalue"></span></span>
+        <img src="../assets/img/hair.png" class="hairLogo"/>
+      </div>
+    </mat-toolbar>
+    <div class="row productsContainer">
+      <div class="product col-3" *ngFor="let product of world.products.product">
+        <app-product (onBuy)="onBuyDone($event)" 
+          (onProductBuyed)="onProductBuyed($event)" 
+          (notifyProduction)="onProductionDone($event)" 
+          [prod]="product" [server]="server" [quanti]="quanti" [money]="world.money">
+        </app-product>
+      </div>
+    </div>
+    
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+  
+<toaster-container></toaster-container>  
+
+<app-modal #managersModal>     
+  <div class="app-modal-header">         
+    <h4 class="modal-title">Better when it's done for you</h4>     
+  </div>     
+  <div class="app-modal-body">         
+    <div *ngFor="let manager of world.managers.pallier" class="manager">   
+        <app-manager (onBuyManager)="onBuyManagerDone($event)" [prod]="world.products.product[manager.idcible-1]" [manag]="manager" [server]="server" [money]="world.money"></app-manager>        
+    </div>     
+  </div>     
+  <div class="app-modal-footer">         
+    <button type="button" class="btn btn-default" (click)="managersModal.hide()">Close</button>     
+  </div> 
+</app-modal> 
+
+<!--<img src="{{server}}icons/{{world.logo}}" class="logoWorld-big"/>
+<img src="{{server}}icons/{{world.logo}}" class="logoWorld-big"/>
+<img src="{{server}}icons/{{world.logo}}" class="logoWorld-big"/>
+<img src="{{server}}icons/{{world.logo}}" class="logoWorld-big"/>-->

@@ -1,0 +1,67 @@
+.sidenav-container {
+    overflow: auto;
+}
+
+.manager {
+    margin: 25px 25px;
+}
+
+.product {
+    margin: 25px;
+}
+
+.logoWorld {
+    width: 40%;
+    height: auto;
+    margin: 5px;       
+}
+
+.hairLogo {
+    width: 10%;
+    height: auto;
+    margin: 10px;
+}
+
+.inputUsername {
+    width: 100%;
+}
+
+.productsContainer {
+    width: 100%;
+    padding: auto;
+    margin: auto;
+}
+
+.sidenav {
+    width: 200px;
+    margin: 0;
+    border: none;
+    background-color: rgb(219, 219, 219);
+}
+
+.sidenav-content {
+    padding: 0;
+    margin: 0;
+    display: flex; /* contexte sur le parent */
+    flex-direction: column; /* direction d'affichage verticale */
+    justify-content: center; /* alignement vertical */
+}
+
+.tittle {
+    background-color: #932c2c;
+    color: white;
+}
+
+.sidenav-toolbar {
+    background-color: #932c2c;
+    right: 20px;
+}
+
+.money {
+    font-size: 15px;
+    color: white;
+    margin: 10px;
+    vertical-align: middle;
+    margin: auto;    
+}
+  

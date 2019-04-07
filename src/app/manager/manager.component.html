@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-3">
+    <img src="{{serverPath}}icons/{{manager.logo}}" class="managerLogo">
+  </div>
+  <div class="col-6">
+    <h4>{{manager.name}}</h4>
+    <h5>{{product.name}}</h5>
+    <h5>{{manager.seuil}}</h5>
+  </div>
+  <div class="col-3"> 
+    <ng-container *ngIf="manager.unlocked == false; else elseTemplate">
+      <button type="button" class="btn btn-secondary" [disabled]="boutonIsEnabled()" (click)="buyManager()">Buy</button>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <img src="assets/img/check.png" class="managerLogo">
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="card productContainer">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-5 productContainer-little">
+        <img (click)="startFabrication()" src="{{serverPath}}icons/{{product.logo}}" class="animation"/>
+      </div>      
+      <div class="col-md-7 productContainer-little">
+        <button mat-raised-button class="buttonBuy" [disabled]="boutonIsEnabled()" (click)="buyProduct()">
+          x{{quantite}} :
+          <span [innerHTML]="coutNbProduit | bigvalue"></span>
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="progress" #bar> </div> 
+    </div>
+    <div class="row">
+        <span *ngIf="product.quantite != 0" [innerHTML]="product.revenu*product.quantite | bigvalue" class="col-4"></span>
+        <span *ngIf="product.quantite != 0" class="col-4">Cheuveux</span>
+    </div>
+  </div>
+  <span class="badge badge-secondary quantite">{{product.quantite}}</span>
+</div>

@@ -1,0 +1,44 @@
+.productContainer {
+    border: 3px;
+    border-style: solid;
+    border-color: #932c2c;
+}
+
+.productContainer-little {
+    display: flex;
+}
+
+.animation{
+    width: 75%;
+    height: auto;
+    margin: auto;
+    display: block;
+    &:active{
+        transform: scale(1.2);
+        transition: all 250ms;
+    }
+}
+
+.progress {
+    margin: 20px;
+    width: 100%;
+    height: 8px;
+}
+
+.buttonBuy {
+    width: 100%;
+    background-color: #932c2c;
+    color: white;
+    margin: auto;
+    display: flex; /* contexte sur le parent */
+    flex-direction: column; /* direction d'affichage verticale */
+    justify-content: center; /* alignement vertical */
+}
+
+.quantite {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    background-color: #932c2c;
+}
